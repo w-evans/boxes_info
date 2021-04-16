@@ -13,6 +13,6 @@ echo "Syntax: ./ipsweep.sh 10.10.10"
 ####### /24 CIDR NETWORK
 else
 for ip in `seq 1 254`; do 
-ping -c 1 $1.$ip | grep "64" | cut -d " " -f 4 | tr -d ":" >> ~/my_data/ip_sweep.txt &
+ping -c 1 $1.$ip | grep "64" | cut -d " " -f 4 | tr -d ":" & ##>> ~/Desktop/htb/scripts/ip_sweep.txt &
 done
 fi

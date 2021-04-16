@@ -1,0 +1,48 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: /home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_dirb.txt
+START_TIME: Fri Apr 16 12:43:36 2021
+URL_BASE: http://10.129.136.26:80/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.129.136.26:80/ ----
++ http://10.129.136.26:80/_private (CODE:403|SIZE:1529)
+==> DIRECTORY: http://10.129.136.26:80/_vti_bin/
++ http://10.129.136.26:80/_vti_bin/_vti_adm/admin.dll (CODE:200|SIZE:195)
++ http://10.129.136.26:80/_vti_bin/_vti_aut/author.dll (CODE:200|SIZE:195)
++ http://10.129.136.26:80/_vti_bin/shtml.dll (CODE:200|SIZE:96)
++ http://10.129.136.26:80/_vti_cnf (CODE:403|SIZE:1529)
++ http://10.129.136.26:80/_vti_log (CODE:403|SIZE:1529)
++ http://10.129.136.26:80/_vti_pvt (CODE:403|SIZE:1529)
++ http://10.129.136.26:80/_vti_txt (CODE:403|SIZE:1529)
++ http://10.129.136.26:80/aspnet_client (CODE:403|SIZE:218)
+==> DIRECTORY: http://10.129.136.26:80/images/
+==> DIRECTORY: http://10.129.136.26:80/Images/
+
+---- Entering directory: http://10.129.136.26:80/_vti_bin/ ----
+==> DIRECTORY: http://10.129.136.26:80/_vti_bin/_vti_aut/
+
+---- Entering directory: http://10.129.136.26:80/images/ ----
+(!) WARNING: All responses for this directory seem to be CODE = 500.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.129.136.26:80/Images/ ----
+(!) WARNING: All responses for this directory seem to be CODE = 500.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.129.136.26:80/_vti_bin/_vti_aut/ ----
+
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: COULDNT CONNECT)
+
+-----------------
+END_TIME: Fri Apr 16 13:36:22 2021
+DOWNLOADED: 13329 - FOUND: 9

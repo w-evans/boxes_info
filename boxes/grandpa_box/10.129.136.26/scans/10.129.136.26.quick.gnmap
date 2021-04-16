@@ -1,0 +1,4 @@
+# Nmap 7.91 scan initiated Fri Apr 16 12:12:06 2021 as: nmap -sC -sV -Pn --disable-arp-ping -oA /home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26.quick 10.129.136.26
+Host: 10.129.136.26 ()	Status: Up
+Host: 10.129.136.26 ()	Ports: 80/open/tcp//http//Microsoft IIS httpd 6.0/	Ignored State: filtered (999)
+# Nmap done at Fri Apr 16 12:12:33 2021 -- 1 IP address (1 host up) scanned in 26.96 seconds

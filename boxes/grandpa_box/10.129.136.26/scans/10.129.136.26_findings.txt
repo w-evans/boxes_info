@@ -1,0 +1,17 @@
+[*] Found HTTP/S service on 10.129.136.26:80
+   [*] Enumeration
+      [=] nikto -h 10.129.136.26 -p 80 -output /home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_nikto.txt
+      [=] curl -i 10.129.136.26:80
+      [=] w3m -dump 10.129.136.26/robots.txt | tee /home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_robots.txt
+      [=] VHostScan -t 10.129.136.26 -oN /home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_vhosts.txt
+
+[*] Found HTTP service on 10.129.136.26:80
+   [*] Enumeration
+      [=] dirb http://10.129.136.26:80/ -o /home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_dirb.txt
+      [=] dirbuster -H -u http://10.129.136.26:80/ -l /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 20 -s / -v -r /home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_dirbuster_medium.txt
+      [=] gobuster -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http://10.129.136.26:80/ -s '200,204,301,302,307,403,500' -e | tee '/home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_gobuster_common.txt'
+      [=] gobuster -w /usr/share/seclists/Discovery/Web-Content/CGIs.txt -u http://10.129.136.26:80/ -s '200,204,301,307,403,500' -e | tee '/home/will-a/Desktop/htb/boxes/grandpa_box/10.129.136.26/scans/10.129.136.26_80_gobuster_cgis.txt'
+
+
+
+[*] Always remember to manually go over the portscan report and carefully read between the lines ;)

